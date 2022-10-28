@@ -1,0 +1,578 @@
+//variables
+$primary: #814096;
+$secondary: #F83292;
+$white: #f2f6fc;
+$black: #1b304d;
+$second-txt: #9fa5f0;
+$cont-sec-txt: #838383;
+$gradient: linear-gradient(90deg, $primary, $secondary);
+
+*{
+    font-family: 'Lato', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border:none;
+}
+
+  /* Evitamos problemas con las imagenes */
+img , picture , video , iframe , figure{
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    /* opcional */ object-fit: cover;        
+    /* opcional */ object-position: center center;
+}
+
+  /* Reseteamos los enlaces para funcionar como cajas... */
+a {
+    display: block;
+    text-decoration: none;
+    color:inherit;
+    font-size:inherit;
+}
+  /* ... excepto los que se encuentran en párrafos */
+p a {
+    display: inline;
+}
+
+  /* Quitamos los puntos de los <li> */
+li {
+    list-style-type: none;
+}
+
+  /* Configuramos anclas suaves */
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+  /* Evitamos problemas con los SVG */
+svg{
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+
+.main-title{
+    text-align: center;
+    color:$primary;
+    background-clip: text;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    padding:1rem;
+}
+
+.btn-primary{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:.8rem 3rem;
+    border-radius: 5rem;
+    background: $gradient;
+    font-size: 1.6rem;
+    color:#fff;
+    cursor: pointer;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    transition: all .3s linear;
+}
+
+.btn-secondary{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:.8rem 3rem;
+    border-radius: 5rem;
+    border: $gradient solid 2px;
+    font-size: 1.6rem;
+    background: $white;
+    color: $primary;
+    transition: all .3s linear;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+.coment{
+    font-size: 1.5rem;
+    color: $cont-sec-txt;
+    margin-top: 36px;
+    margin-bottom: 36px;
+}
+
+.accent-txt{
+    color: $secondary;
+}
+
+header {
+    position: fixed;
+    top:0; 
+    left:0;
+    width:100%;
+    background:#fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    padding:2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+}
+
+header .logo{
+    font-size: 2rem;
+    color: $secondary;
+}
+
+header .logo span{
+    color:$primary;
+}
+
+header .navbar{
+    position: absolute;
+    top:100%; left: 0;
+    width:100%;
+    background:#fff;
+    padding:1rem 2rem;
+    border-top: .1rem solid rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: .2s linear;
+}
+
+header .navbar a{
+    display: block;
+    margin:2rem 0;
+    font-size: 2rem;
+    color: $secondary;
+}
+
+header input:checked ~ .navbar{
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+header input:checked ~ label::before{
+    content:'\f00d';
+}
+
+header .navbar a:hover{
+    color:$primary;
+}
+
+header input{
+    display: none;
+}
+
+header label{
+    visibility: visible;
+    opacity: 1;
+    font-size: 3rem;
+    color:$secondary;
+    cursor: pointer;
+}
+
+
+.home{
+    background:url(../src/img/home-bg-img.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.main-home-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 90px 10px 0 10px;
+}
+
+.home .home-img img{
+    width:100%;
+    animation: float 5s linear infinite;
+    margin: auto;
+}
+
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-2.5rem);
+    }
+}
+
+.home-main-info h2{
+    font-size: 3.6rem;
+    color: $primary;
+    text-transform: uppercase;
+}
+
+.home-benefits-container .benefit{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 8px;
+}
+
+.home-benefits-container .benefit img{
+    height: 18px;
+    width: 18px;
+}
+
+.main-home-btn-container{
+    display: flex;
+}
+
+.main-home-btn-container img{
+    margin-right: 8px;
+    height: 18px;
+    width: 18px;
+}
+
+.home-benefits-container .benefit h3{
+    font-size: 1.5rem;
+    color: $cont-sec-txt;
+    font-weight: 900;
+    margin-left: 8px;
+}
+
+.main-home-btn-container{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.main-services-container .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.services{
+    background: $white;
+    padding: 90px 0;
+}
+.main-services-container{
+    margin-left: 10px;
+    margin-right: 10px;
+    p{
+        text-align: center;
+    }
+}
+.main-services-container .box-container .box{
+    flex:1 1 20rem;
+    background:#fff;
+    border-radius: .5rem;
+    border:.1rem solid rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    margin:1.5rem;
+    padding:3rem 2rem;
+    border-radius: .5rem;
+    text-align: center;
+    transition: .2s linear;
+}
+
+.main-services-container .box-container .box img{
+    margin: auto;
+    width: 15rem;
+}
+
+.main-services-container .box-container .box h3{
+    font-size: 2rem;
+    color:$black;
+    padding-top: 1rem;
+}
+
+.main-services-container .box-container .box p{
+    font-size: 1.3rem;
+    color:$cont-sec-txt;
+    padding: 1rem 0;
+}
+
+.info-one{
+    background: $gradient;
+    padding: 36px 0 36px 0;
+}
+
+.main-info-container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+.main-info-container .info-img-one img{
+    width: 80%;
+    margin: auto;
+}
+
+.main-info-container .info-img-sec h3{
+    font-size: 2rem;
+    color:$white;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.info-two{
+    padding: 36px 0;
+}
+
+.main-info-container .write-info h3{
+    font-size: 2rem;
+    color:$black;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 36px 0;
+}
+
+.main-contact{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact .image{
+    width: 100%;
+    margin: auto;
+}
+
+.contact .image img{
+    width:100%;
+}
+
+.contact form{
+    padding:2rem 3rem;
+    border:.1rem solid rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+    background:#fff;
+}
+
+.contact form .heading{
+    text-align: center;
+    padding:0;
+    padding-bottom: 2rem;
+}
+
+.contact form h2{
+    color: #F83292;
+    font-size: 2.6rem;
+}
+
+.contact form p{
+    text-align: center;
+}
+
+.contact form .inputBox{
+    position: relative;
+}
+
+.contact form .inputBox input, .contact form .inputBox textarea{
+    width:100%;
+    background:none;
+    color:#666;
+    margin:1.5rem 0;
+    padding:.5rem 0;
+    font-size: 1.7rem;
+    border-bottom: .1rem solid rgba(0,0,0,.1);
+    text-transform: none;
+}
+
+.contact form .inputBox textarea{
+    resize: none;
+    height: 13rem;
+}
+
+.contact form .inputBox label{
+    position: absolute;
+    top:1.7rem; left:0;
+    font-size: 1.7rem;
+    color:#666;
+    transition: .2s linear;
+}
+
+.contact form .inputBox input:focus ~ label,
+.contact form .inputBox input:valid ~ label,
+.contact form .inputBox textarea:focus ~ label,
+.contact form .inputBox textarea:valid ~ label{
+    top:-.5rem;
+    font-size: 1.5rem;
+    color:$secondary;
+}
+
+.footer{
+    padding-top: 3rem;
+    background:url(../src/img/footer-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box{
+    flex:1 1 25rem;
+    margin:2rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    padding:1rem 0;
+    color:#fff;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+}
+
+.footer .box-container .box p{
+    font-size: 1.5rem;
+    padding:.5rem 0;
+    color:#eee;
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    padding:.5rem 0;
+    color:#eee;
+}
+
+.footer .box-container .box a:hover{
+    text-decoration: underline;
+}
+
+.footer .box-container .box .info{
+    display: flex;
+    align-items: center;
+}
+
+.footer .box-container .box .info i{
+    margin:.5rem 0;
+    margin-right: 1rem;
+    border-radius: 50%;
+    background:#fff;
+    color:$secondary;
+    font-size: 1.5rem;
+    height:4.5rem;
+    width:4.5rem;
+    line-height: 4.5rem;
+    text-align: center;
+}
+
+@media (min-width: 730px) {
+
+    header{
+        height: 80px;
+    }
+
+    header .navbar{
+        display: flex;
+        justify-content: flex-end;
+        position: initial;
+        box-shadow: none;
+        border-top: none;
+        transform-origin: top;
+        transform: scaleY(1);
+        opacity: 1;
+        height: 80px;
+    }
+
+    header .navbar a{
+        margin-left: 20px;
+    }
+
+    header label{
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .main-title{
+        font-size: 3rem;
+    }
+    .main-home-container{
+        flex-direction: row-reverse;
+    }
+    .home-img{
+        width: 70%;
+    }
+
+    .main-home-btn-container .btn{
+        margin-left: 8px;
+    }
+
+    .home-main-info h2{
+        font-size: 3.6rem;
+    }
+
+    .main-info-container{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .main-info-container .info-img-sec h3{
+        font-size: 3rem;
+        text-align: left;
+    }
+
+    .reverse{
+        flex-direction: row-reverse;
+    }
+
+    .main-contact{
+        flex-direction: row;
+    }
+
+    .main-info-container .write-info h3{
+        font-size: 2.6rem;
+        text-align: left;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .main-title{
+        font-size: 3.6rem;
+    }
+
+    .coment{
+        font-size: 2rem;
+    }
+
+    .home-main-info{
+        width: 100%;
+    }
+
+    .main-home-container{
+        width: 90%;
+        margin: auto;
+    }
+
+    .home-main-info h2{
+        font-size: 4.6rem;
+    }
+
+    .home-benefits-container .benefit h3{
+        font-size: 1.7rem;
+    }
+    .contact-form, .image{
+        flex-basis: 40%;
+    }
+    .main-contact{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-info-container .write-info h3{
+        font-size: 3.6rem;
+    }
+}
